@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "mitt": "1.1.3",
+    "page": "1.8.4",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   }
