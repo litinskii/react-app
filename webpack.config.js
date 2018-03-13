@@ -9,7 +9,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-  entry: "./src/application/index.jsx",
+  entry: "./src/application/index.js",
   module: {
     rules: [
       {
@@ -96,11 +96,12 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "/public"),
-    filename: "index.jsx"
+    filename: "index.js"
   },
   stats: !IS_PRODUCTION,
   devServer: {
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
     // host: '0.0.0.0',
     // disableHostCheck: true,
     // headers: { 'Access-Control-Allow-Origin': '*' }
@@ -143,6 +144,6 @@ module.exports = {
   },
   resolve: {
     modules: [path.join(__dirname, "src/application/"), path.join(__dirname, "node_modules")],
-    extensions: [".js", ".jsx"]
+    extensions: [".js"]
   }
 };
