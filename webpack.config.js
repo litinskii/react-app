@@ -125,25 +125,9 @@ module.exports = {
     IS_PRODUCTION ? new ExtractTextPlugin("assets/css/main.css") : undefined,
     IS_PRODUCTION ? new CleanWebpackPlugin(["public"]) : undefined
   ].filter(plugin => plugin),
-  optimization: {
-    minimizer: [
-      IS_PRODUCTION
-        ? new UglifyJsPlugin({
-            cache: true,
-            parallel: true,
-            uglifyOptions: {
-              warnings: false,
-              compress: {
-                warnings: false
-              }
-            },
-            sourceMap: false
-          })
-        : undefined
-    ].filter(plugin => plugin)
-  },
   resolve: {
     modules: [path.join(__dirname, "src/application/"), path.join(__dirname, "node_modules")],
     extensions: [".js"]
-  }
+  },
+  devtool: IS_PRODUCTION ? false : 'eval-cheap-module-source-map'
 };
