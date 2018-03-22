@@ -1,0 +1,11 @@
+.Links {
+  display: flex;
+
+  .Link {
+    margin: 10px;
+  }
+
+  .Link--active {
+    color: $red;
+  }
+}
