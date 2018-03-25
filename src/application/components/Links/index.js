@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import "./Links.scss";
 
 const Links = () => (
   <div className="Links">
