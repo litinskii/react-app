@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules|src\/application\/assets/,
+        exclude: [/node_modules/, path.join(__dirname, 'src/application/assets/')],
         enforce: "pre",
         loader: "eslint-loader",
         options: {
