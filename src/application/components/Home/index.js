@@ -7,7 +7,7 @@ import "./Home.scss";
 
 const Home = ({ data: { homePageClicksCount } }) => (
   <div className="Home" onClick={() => store.set({ homePageClicksCount: homePageClicksCount + 1 })}>
-    {homePageClicksCount}
+    <div className="Home__clicks">{`Home clicks: ${homePageClicksCount}`}</div>
   </div>
 );
 

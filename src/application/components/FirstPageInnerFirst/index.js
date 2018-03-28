@@ -1,9 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import SomeComponent from "../SomeComponent";
 import "./FirstPageInnerFirst.scss";
 
-const FirstPageInnerFirst = ({ match }) => <div className="FirstPageInnerFirst">{`id: ${match.params.id}`}</div>;
+const FirstPageInnerFirst = ({ match }) => (
+  <div className="FirstPageInnerFirst">
+    <div className="FirstPageInnerFirst__params-id">{`id: ${match.params.id}`}</div>
+    <SomeComponent />
+  </div>
+);
 
 FirstPageInnerFirst.propTypes = {
   match: PropTypes.shape({
