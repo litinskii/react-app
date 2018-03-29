@@ -9,7 +9,7 @@ import withStore from "../../common/withStore";
 import withResetStoreOnMountAndUnMount from "../../common/withResetStoreOnMountAndUnMount";
 import store from "./store";
 
-const FirstPage = ({ data: { firstPageClicksCount } }) => (
+const FirstPage = ({ firstPageClicksCount }) => (
   <div className="FirstPage" onClick={() => store.set({ firstPageClicksCount: firstPageClicksCount + 1 })}>
     <Links />
     <div className="FirstPage__clicks">{`FirstPage clicks: ${firstPageClicksCount}`}</div>
@@ -22,9 +22,7 @@ const FirstPage = ({ data: { firstPageClicksCount } }) => (
 );
 
 FirstPage.propTypes = {
-  data: PropTypes.shape({
-    firstPageClicksCount: PropTypes.number.isRequired
-  }).isRequired
+  firstPageClicksCount: PropTypes.number.isRequired
 };
 
 export default withResetStoreOnMountAndUnMount(withStore(FirstPage, store), store);

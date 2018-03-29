@@ -5,16 +5,14 @@ import withResetStoreOnMountAndUnMount from "../../common/withResetStoreOnMountA
 import store from "./store";
 import "./Home.scss";
 
-const Home = ({ data: { homePageClicksCount } }) => (
+const Home = ({ homePageClicksCount }) => (
   <div className="Home" onClick={() => store.set({ homePageClicksCount: homePageClicksCount + 1 })}>
     <div className="Home__clicks">{`Home clicks: ${homePageClicksCount}`}</div>
   </div>
 );
 
 Home.propTypes = {
-  data: PropTypes.shape({
-    homePageClicksCount: PropTypes.number.isRequired
-  }).isRequired
+  homePageClicksCount: PropTypes.number.isRequired
 };
 
 export default withResetStoreOnMountAndUnMount(withStore(Home, store), store);
