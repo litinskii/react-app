@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import { findKey, keys, includes } from "lodash";
+
+const findFirstExistingStateKeyInProps = (state, props) => {
+  const propsKeys = keys(props);
+  return findKey(state, (value, key) => includes(propsKeys, key));
+};
 
 export default (WrappedComponent, store) =>
   class extends Component {
@@ -21,6 +27,10 @@ export default (WrappedComponent, store) =>
     }
 
     render() {
-      return <WrappedComponent data={this.state} {...this.props} />;
+      const existingStateKeyInProps = findFirstExistingStateKeyInProps(this.state, this.props);
+      if (existingStateKeyInProps) {
+        throw new Error(`Error. Property ${existingStateKeyInProps} already exist.`);
+      }
+      return <WrappedComponent {...this.state} {...this.props} />;
     }
   };

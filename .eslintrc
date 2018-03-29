@@ -16,6 +16,7 @@
         "aspects": ["noHref", "invalidHref", "preferButton"]
       }
     ],
+    "max-len": ["error", { "code": 140 }],
     "comma-dangle": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0
