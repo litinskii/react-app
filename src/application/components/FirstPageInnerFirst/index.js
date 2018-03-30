@@ -5,7 +5,7 @@ import "./FirstPageInnerFirst.scss";
 
 const FirstPageInnerFirst = ({ match }) => (
   <div className="FirstPageInnerFirst">
-    <div className="FirstPageInnerFirst__params-id">{`id: ${match.params.id}`}</div>
+    <div className="FirstPageInnerFirst__params-id">{`FirstPageInnerFirst ID: ${match.params.id}`}</div>
     <SomeComponent />
   </div>
 );

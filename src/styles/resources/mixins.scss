@@ -1,0 +1,12 @@
+@mixin WrapperContentMixin {
+  border-width: 1px;
+  border-color: $black;
+  border-style: solid;
+  padding: 10px;
+  margin: 10px;
+}
+
+@mixin WrapperNoContentMixin {
+  @include WrapperContentMixin();
+  border-color: $red;
+}

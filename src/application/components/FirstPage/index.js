@@ -11,8 +11,8 @@ import store from "./store";
 
 const FirstPage = ({ firstPageClicksCount }) => (
   <div className="FirstPage" onClick={() => store.set({ firstPageClicksCount: firstPageClicksCount + 1 })}>
-    <Links />
     <div className="FirstPage__clicks">{`FirstPage clicks: ${firstPageClicksCount}`}</div>
+    <Links />
     <Switch>
       <Route path="/first-page/first-page-inner-first/:id" component={FirstPageInnerFirst} />
       <Route path="/first-page/first-page-inner-second" component={FirstPageInnerSecond} />
