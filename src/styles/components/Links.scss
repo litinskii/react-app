@@ -1,5 +1,6 @@
 .Links {
   display: flex;
+  @include WrapperContentMixin();
 
   .Link {
     height: 100%;
