@@ -1,6 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./SecondPage.scss";
+import globalStore from "../globalStore";
+import withStore from "../../common/withStore";
 
-const SecondPage = () => <div className="SecondPage" />;
+const SecondPage = ({ clickCount }) => (
+  <div className="SecondPage">
+    <div className="SecondPage__clicks">{`All time FirstPage and SomeComponentInner clicks: ${clickCount}`}</div>
+  </div>
+);
 
-export default SecondPage;
+SecondPage.propTypes = {
+  clickCount: PropTypes.number.isRequired
+};
+
+export default withStore(SecondPage, globalStore);
