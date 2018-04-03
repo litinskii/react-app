@@ -1,4 +1,4 @@
-import Store from "../../common/store";
+import Store from "../../common/StoreClass";
 
 class FirstPageStore extends Store {}
 

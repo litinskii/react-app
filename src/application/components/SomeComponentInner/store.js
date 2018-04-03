@@ -1,5 +1,9 @@
-import Store from "../../common/store";
+import Store from "../../common/StoreClass";
 
-class SomeComponentInnerStore extends Store {}
+class SomeComponentInnerStore extends Store {
+  incrementClicksCount() {
+    this.set({ someComponentInnerClicksCount: this.get("someComponentInnerClicksCount") + 1 });
+  }
+}
 
 export default new SomeComponentInnerStore({ someComponentInnerClicksCount: 0 });

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 export default (WrappedComponent, store) =>
   class extends Component {
-    componentWillMount() {
+    constructor(...args) {
+      super(...args);
       store.resetToDefaults();
     }
 

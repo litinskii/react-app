@@ -14,7 +14,7 @@ export default (WrappedComponent, store) =>
       this.emitChange = this.emitChange.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
       store.events.on("change", this.emitChange);
     }
 
