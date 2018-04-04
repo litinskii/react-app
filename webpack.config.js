@@ -6,7 +6,7 @@ const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const jsonServer = require("json-server");
 
 module.exports = {
   entry: "./src/application/index.js",
@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: [/node_modules/, path.join(__dirname, 'src/application/assets/')],
+        exclude: [/node_modules/, path.join(__dirname, "src/application/assets/")],
         enforce: "pre",
         loader: "eslint-loader",
         options: {
@@ -100,6 +100,11 @@ module.exports = {
   },
   stats: !IS_PRODUCTION,
   devServer: {
+    before: server => {
+      server.use("/api", jsonServer.defaults());
+      server.use("/api", jsonServer.bodyParser);
+      server.use("/api", jsonServer.router(path.join(__dirname, "src/api/db.json")));
+    },
     port: 3000,
     historyApiFallback: true
     // host: '0.0.0.0',
@@ -129,5 +134,5 @@ module.exports = {
     modules: [path.join(__dirname, "src/application/"), path.join(__dirname, "node_modules")],
     extensions: [".js"]
   },
-  devtool: IS_PRODUCTION ? false : 'eval-cheap-module-source-map'
+  devtool: IS_PRODUCTION ? false : "eval-cheap-module-source-map"
 };
