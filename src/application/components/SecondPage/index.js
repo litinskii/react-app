@@ -6,7 +6,7 @@ import withStore from "../../common/withStore";
 
 const SecondPage = ({ clickCount }) => (
   <div className="SecondPage">
-    <div className="SecondPage__clicks">{`All time FirstPage and SomeComponentInner clicks: ${clickCount}`}</div>
+    <div className="SecondPage__clicks">{`All time HomePage and SomeComponentInner clicks: ${clickCount}`}</div>
   </div>
 );
 
