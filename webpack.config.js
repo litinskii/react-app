@@ -103,7 +103,7 @@ module.exports = {
     before: server => {
       server.use("/api", jsonServer.defaults());
       server.use("/api", jsonServer.bodyParser);
-      server.use("/api", jsonServer.router(path.join(__dirname, "src/api/db.json")));
+      server.use("/api", jsonServer.router(path.join(__dirname, "src/db.json")));
     },
     port: 3000,
     historyApiFallback: true

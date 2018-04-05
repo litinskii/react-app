@@ -17,6 +17,9 @@
       }
     ],
     "max-len": ["error", { "code": 140 }],
+    "arrow-parens": ["error", "as-needed"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "function-paren-newline": ["error", "consistent"],
     "comma-dangle": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0
