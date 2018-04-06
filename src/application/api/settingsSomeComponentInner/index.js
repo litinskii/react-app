@@ -5,7 +5,7 @@ const getSomeComponentInnerClicksCount = async () => {
     const { clicksCount } = await get("/api/settingsSomeComponentInner");
     return clicksCount;
   } catch (error) {
-    console.error("Error while 'loadHomePageClicksCount'", error);
+    console.error("Error while 'getSomeComponentInnerClicksCount'", error);
     return Promise.reject(error);
   }
 };
@@ -15,7 +15,7 @@ const saveSomeComponentInnerClicksCount = async someComponentInnerClicksCount =>
     const { clicksCount } = await save("/api/settingsSomeComponentInner", { clicksCount: someComponentInnerClicksCount });
     return clicksCount;
   } catch (error) {
-    console.error("Error while 'saveHomePageClicksCount'", error);
+    console.error("Error while 'saveSomeComponentInnerClicksCount'", error);
     return Promise.reject(error);
   }
 };

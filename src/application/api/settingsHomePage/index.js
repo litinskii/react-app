@@ -5,7 +5,7 @@ const getHomePageClicksCount = async () => {
     const { clicksCount } = await get("/api/settingsHomePage");
     return clicksCount;
   } catch (error) {
-    console.error("Error while 'loadHomePageClicksCount'", error);
+    console.error("Error while 'getHomePageClicksCount'", error);
     return Promise.reject(error);
   }
 };
