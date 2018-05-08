@@ -45,7 +45,7 @@ module.exports = {
                 {
                   loader: "sass-resources-loader",
                   options: {
-                    resources: path.join(__dirname, "src/styles/resources.scss")
+                    resources: path.join(__dirname, "src/styles/resources/index.scss")
                   }
                 }
               ]
