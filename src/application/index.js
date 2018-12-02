@@ -7,12 +7,14 @@ import FirstPage from "./components/FirstPage";
 import SecondPage from "./components/SecondPage";
 import NotFoundPage from "./components/NotFoundPage";
 import Links from "./components/Links";
+import GlobalClicksCount from "./components/GlobalClicksCount";
 import "./index.scss";
 
 ReactDOM.render(
   <Router>
     <Fragment>
       <Links />
+      <GlobalClicksCount />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/first-page" component={FirstPage} />

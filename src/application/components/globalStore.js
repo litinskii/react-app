@@ -1,12 +1,11 @@
+import { sum } from "lodash";
 import Store from "../common/StoreClass";
+import { getHomePageClicksCount } from "../api/settingsHomePage";
+import { getSomeComponentInnerClicksCount } from "../api/settingsSomeComponentInner";
 
 class GlobalStore extends Store {
-  incrementClicksCount() {
-    this.set({ clickCount: this.get("clickCount") + 1 });
-  }
-
-  setClicksCount(clickCount) {
-    this.set({ clickCount });
+  async loadAllClicksCount() {
+    this.set({ clickCount: sum(await Promise.all([getHomePageClicksCount(), getSomeComponentInnerClicksCount()])) });
   }
 }
 

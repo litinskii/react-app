@@ -103,7 +103,7 @@ module.exports = {
     before: server => {
       server.use("/api", jsonServer.defaults());
       server.use("/api", jsonServer.bodyParser);
-      server.use("/api", (req, res, next) => setTimeout(next, 5000));
+      server.use("/api", (req, res, next) => setTimeout(next, 500));
       server.use("/api", jsonServer.router(path.join(__dirname, "src/db.json")));
     },
     port: 3000,

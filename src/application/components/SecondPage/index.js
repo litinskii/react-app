@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { sum } from "lodash";
 import "./SecondPage.scss";
 import globalStore from "../globalStore";
 import withStore from "../../common/withStore";
-import { getHomePageClicksCount } from "../../api/settingsHomePage";
-import { getSomeComponentInnerClicksCount } from "../../api/settingsSomeComponentInner";
 import LoaderOverlay from "../LoaderOverlay";
 
 class SecondPage extends Component {
@@ -16,7 +13,7 @@ class SecondPage extends Component {
 
   async componentDidMount() {
     try {
-      globalStore.setClicksCount(sum(await Promise.all([getHomePageClicksCount(), getSomeComponentInnerClicksCount()])));
+      await globalStore.loadAllClicksCount();
     } finally {
       this.setState({ loading: false });
     }

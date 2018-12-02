@@ -1,27 +1,21 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./SomeComponentInner.scss";
-import withOnUnMount from "../../common/withOnUnMount";
 import withStore from "../../common/withStore";
 import withResetStoreOnMountAndUnMount from "../../common/withResetStoreOnMountAndUnMount";
 import firstPageStore from "../FirstPage/store";
 import store from "./store";
 import globalStore from "../globalStore";
-import { getSomeComponentInnerClicksCount, saveSomeComponentInnerClicksCount } from "../../api/settingsSomeComponentInner";
 import LoaderOverlay from "../LoaderOverlay";
 
-const countClicks = () => {
-  store.incrementClicksCount();
-  globalStore.incrementClicksCount();
+const countClicks = async () => {
+  await store.incrementClicksCount();
+  globalStore.loadAllClicksCount();
 };
 
 class SomeComponentInner extends Component {
-  async componentDidMount() {
-    try {
-      store.setSomeComponentInnerClicksCount(await getSomeComponentInnerClicksCount());
-    } finally {
-      store.set("loading", false);
-    }
+  componentDidMount() {
+    store.loadClicksCount();
   }
 
   render() {
@@ -42,6 +36,4 @@ SomeComponentInner.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
-export default withOnUnMount(withStore(withResetStoreOnMountAndUnMount(withStore(SomeComponentInner, store), store), firstPageStore), () =>
-  saveSomeComponentInnerClicksCount(store.get("someComponentInnerClicksCount"))
-);
+export default withStore(withResetStoreOnMountAndUnMount(withStore(SomeComponentInner, store), store), firstPageStore);
