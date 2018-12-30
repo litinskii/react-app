@@ -20,9 +20,9 @@ class Home extends Component {
   render() {
     const { homePageClicksCount, loading } = this.props;
     return (
-      <div className="Home" onClick={countClicks}>
+      <div className="Home e2e-home" onClick={countClicks}>
         {loading ? <LoaderOverlay /> : undefined}
-        <div className="Home__clicks">{`Home clicks: ${homePageClicksCount}`}</div>
+        <div className="Home__clicks e2e-home-clicked-counter">{`Home clicks: ${homePageClicksCount}`}</div>
       </div>
     );
   }
